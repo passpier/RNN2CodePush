@@ -17,7 +17,7 @@ $ yarn add react-native-code-push
 ```
 $ pod repo update
 ```
-3. Add app center’s the SDK to the project
+3. Add app center’s SDK to the project
 ```
 $ yarn add appcenter appcenter-analytics appcenter-crashes --exact
 
@@ -148,7 +148,7 @@ dependencies {
 
 ```
 
-### Usage
+### Startup Usage
 
 Update `index.js` file
 
@@ -159,23 +159,10 @@ const codePushOptions = {checkFrequency: CodePush.CheckFrequency.ON_APP_START};
 Navigation.registerComponent(`navigation.playground.WelcomeScreen`, () => CodePush(codePushOptions)(App));
 
 Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot({
+   Navigation.setRoot({
     root: {
-      stack: {
-        children: [
-          {
-            component: {
-              name: "navigation.playground.WelcomeScreen",
-              options: {
-                topBar: {
-                  title: {
-                    text: "Welcome",
-                  },
-                },
-              },
-            },
-          },
-        ],
+      component: {
+        name: "navigation.playground.WelcomeScreen",
       },
     },
   }).then();
