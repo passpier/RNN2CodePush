@@ -108,3 +108,42 @@ public class MainActivity extends NavigationActivity {
     }
 }
 ```
+
+**android/app/build.gradle**
+
+```
+def codePushKey = "9PztoHXczmxEtVdd3IZ7QwPafF9nSJ-2jFSVN"
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.rnn2codepush"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        missingDimensionStrategy "RNN.reactNativeVersion", "reactNative57"
+        versionCode 1
+        versionName "1.0"
+        buildConfigField "String", "CODE_PUSH_KEY", "\"" + codePushKey + "\""
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    ...
+}
+
+dependencies {
+    implementation project(':react-native-navigation')
+    implementation project(':appcenter-crashes')
+    implementation project(':appcenter-analytics')
+    implementation project(':appcenter')
+    implementation project(':react-native-code-push')
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    implementation "com.android.support:design:${rootProject.ext.supportLibVersion}"
+    implementation "com.facebook.react:react-native:+"  // From node_modules
+}
+
+```
