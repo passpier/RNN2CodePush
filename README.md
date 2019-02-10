@@ -10,14 +10,19 @@ $ yarn add react-native-navigation
 ### Microsoft App Center CodePush
 Register a Microsoft App Center account and create both android an ios app. You can get the development key.
 1. Install react-native-code-push
+
 ```
 $ yarn add react-native-code-push
 ```
+
 2. Update CocoaPods spec information for iOS project
+
 ```
 $ pod repo update
 ```
+
 3. Add app center’s SDK to the project
+
 ```
 $ yarn add appcenter appcenter-analytics appcenter-crashes --exact
 
@@ -29,6 +34,7 @@ $ react-native link
 The default integration of the Microsoft App Center SDK uses CocoaPods for iOS. If you use the solution, you need to open `RNN2CodePush.xcworkspace` for start project.
 
 **AppDelegate.m**
+
 ```objectivec
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
